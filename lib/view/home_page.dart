@@ -13,31 +13,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ListPictureViewModel listPictureViewModel = new ListPictureViewModel();
+  ListPictureViewModel listPictureViewModel = ListPictureViewModel();
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Pictures'),),
+      appBar: AppBar(title: const Text('Pictures'),),
       body: FutureBuilder(future: listPictureViewModel.fetchPictures(),
       builder: (context, snapshot){
         if(snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: CircularProgressIndicator(),);
+          return const Center(child: CircularProgressIndicator(),);
         }else{
 
           return
             GridView.custom(
             gridDelegate: SliverQuiltedGridDelegate(
-              crossAxisCount: 4,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
+              crossAxisCount: 2,
+              mainAxisSpacing: 6,
+              crossAxisSpacing: 6,
               repeatPattern: QuiltedGridRepeatPattern.inverted,
               pattern: [
-                QuiltedGridTile(2, 2),
-                QuiltedGridTile(1, 1),
-                QuiltedGridTile(1, 1),
-                QuiltedGridTile(1, 2),
+                const QuiltedGridTile(2, 2),
+                const QuiltedGridTile(1, 1),
+                const QuiltedGridTile(1, 1),
+                const QuiltedGridTile(1, 2),
               ],
             ),
             childrenDelegate: SliverChildBuilderDelegate(
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.grey,
                     child: FadeInImage.memoryNetwork(
                       placeholder: kTransparentImage,
-                      image: '${listPictureViewModel.pictures![index].picSumModel!.downloadUrl}',
+                      image: '${listPictureViewModel.pictures![index].picSumModel!.url}',
                       fit: BoxFit.cover,),
                   ),
             ),

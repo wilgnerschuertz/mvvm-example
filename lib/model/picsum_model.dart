@@ -24,13 +24,13 @@ class PicSumModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['author'] = this.author;
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['url'] = this.url;
-    data['download_url'] = this.downloadUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['author'] = author;
+    data['width'] = width;
+    data['height'] = height;
+    data['url'] = url;
+    data['download_url'] = downloadUrl;
     return data;
   }
 }

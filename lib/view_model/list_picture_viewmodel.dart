@@ -8,7 +8,7 @@ class ListPictureViewModel {
 
   Future<void> fetchPictures() async {
     final apiResult = await Service().fecthPicturesAPI();
-    this.pictures = apiResult?.map((e) => PictureViewModel(e)).toList();
+    pictures = apiResult?.map((e) => PictureViewModel(e)).toList();
   }
 }
 
