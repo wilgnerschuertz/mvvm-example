@@ -13,7 +13,8 @@ class Service{
       final json = jsonDecode(response.body) as List<dynamic>;
       final listResult = json.map((e) => PicSumModel.fromJson(e)).toList();
     }
-    else
+    else {
       throw Exception('Error fetching pictures');
+    }
   }
 }

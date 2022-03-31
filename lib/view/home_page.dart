@@ -28,6 +28,32 @@ class _HomePageState extends State<HomePage> {
 
           return
             GridView.custom(
+              gridDelegate: SliverWovenGridDelegate.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 2,
+                crossAxisSpacing: 2,
+                pattern: [
+                  const WovenGridTile(1),
+                  const WovenGridTile(
+                    5 / 7,
+                    crossAxisRatio: 0.9,
+                    alignment: AlignmentDirectional.centerEnd,
+                  ),
+                ],
+              ),
+              childrenDelegate: SliverChildBuilderDelegate(
+                    (context, index) => Container(
+                      color: Colors.grey,
+                      child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: '${listPictureViewModel.pictures![index].picSumModel!.url}',
+                      fit: BoxFit.cover,),
+              ),
+            ));
+
+
+          /*
+            GridView.custom(
             gridDelegate: SliverQuiltedGridDelegate(
               crossAxisCount: 2,
               mainAxisSpacing: 6,
@@ -50,6 +76,9 @@ class _HomePageState extends State<HomePage> {
                   ),
             ),
           );
+          */
+
+
 
         }
       },),
